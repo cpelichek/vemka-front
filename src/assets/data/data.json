@@ -5,11 +5,13 @@
     "groups": [{
       "time": "8:00 am",
       "sessions": [{
-        "name": "Breakfast",
-        "timeStart": "8:00 am",
+        "name": "VemKa Você já leu...?",
         "timeEnd": "9:00 am",
-        "location": "Main hallway",
-        "tracks": ["Food"],
+        "location": "Vão do MASP",
+        "description": "Traga à tona seu eu lírico e mostre seu lado mais cult! Neste evento, nós iremos expressar nossa criatividade e sentimentos para o mundo de uma forma espetacular!",
+        "clue": "Rosas são vermelhas, violetas são azuis... Venha participar de uma experiência nova, e sentir-se sobre uma nova luz!",
+        "box": ["Box VemKa Você já leu...?"],
+        "tracks": ["Cultura"],
         "id": "1"
       }]
     }, {
@@ -206,6 +208,17 @@
     }]
   }],
 
+
+"box": [{
+    "name": "Box VemKa Você já leu...?",
+    "profilePic": "assets/img/speakers/bear.jpg",
+    "twitter": "ionicframework",
+    "about": "Burt is a Bear.",
+    "location": "Everywhere",
+    "email": "burt@example.com",
+    "phone": "+1-541-754-3010",
+    "id": "1"
+  }],
 
   "speakers": [{
     "name": "Burt Bear",
