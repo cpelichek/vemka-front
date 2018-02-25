@@ -19,16 +19,16 @@ export class SessionDetailPage {
   constructor(
     public dataProvider: ConferenceData,
     public navParams: NavParams,
-    private navController: NavController
+    //private navController: NavController
   ) {}
 
  
-  ngOnInit() {
+  /*ngOnInit() {
     setTimeout(() => {
       this.timer.startTimer();
     }, 1000)
   }
- 
+ */
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {
