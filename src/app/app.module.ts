@@ -29,6 +29,8 @@ import { SupportPage } from '../pages/support/support';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
+import { TimerComponent } from '../pages/timer/timer';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { UserData } from '../providers/user-data';
     SpeakerListPage,
     TabsPage,
     TutorialPage,
-    SupportPage
+    SupportPage,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

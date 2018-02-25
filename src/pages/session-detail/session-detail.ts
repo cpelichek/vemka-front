@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
-
+import { NavController } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
+import { TimerComponent } from '../timer/timer';
 import { ConferenceData } from '../../providers/conference-data';
 
 @Component({
@@ -9,11 +11,24 @@ import { ConferenceData } from '../../providers/conference-data';
 })
 export class SessionDetailPage {
   session: any;
+  @ViewChild(TimerComponent) timer: TimerComponent;
+ 
+  appName = 'Ionic App';
+ 
 
   constructor(
     public dataProvider: ConferenceData,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private navController: NavController
   ) {}
+
+ 
+  ngOnInit() {
+    setTimeout(() => {
+      this.timer.startTimer();
+    }, 1000)
+  }
+ 
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {
