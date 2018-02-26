@@ -1,11 +1,11 @@
 {
   "name": "vemka",
   "version": "0.0.1",
-  "description": "An Ionic project",
+  "description": "VemKa - app solution for new experiences.",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/ionic-conference-app.git"
+    "url": "https://github.com/cpelichek/vemka-front.git"
   },
   "scripts": {
     "build": "ionic-app-scripts build",
