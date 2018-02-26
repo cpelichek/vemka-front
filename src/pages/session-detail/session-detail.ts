@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
-import { ViewChild } from '@angular/core';
-import { TimerComponent } from '../timer/timer';
+import { NgModule } from '@angular/core';
+//import { ViewChild } from '@angular/core';
+//import { TimerComponent } from '../timer/timer';
 import { ConferenceData } from '../../providers/conference-data';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-session-detail',
   templateUrl: 'session-detail.html'
 })
+
+
 export class SessionDetailPage {
   session: any;
-  @ViewChild(TimerComponent) timer: TimerComponent;
- 
+  //@ViewChild(TimerComponent) timer: TimerComponent;
   appName = 'Ionic App';
  
 
   constructor(
     public dataProvider: ConferenceData,
     public navParams: NavParams,
-    //private navController: NavController
+    public navController: NavController
   ) {}
 
  
@@ -29,6 +32,9 @@ export class SessionDetailPage {
     }, 1000)
   }
  */
+YourFancyButton(){
+  this.navController.setRoot(SignupPage);
+  }
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {

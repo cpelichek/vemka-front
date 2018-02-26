@@ -29,7 +29,8 @@ import { SupportPage } from '../pages/support/support';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
-import { TimerComponent } from '../pages/timer/timer';
+//import { TimerComponent } from '../pages/timer/timer';
+
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { TimerComponent } from '../pages/timer/timer';
     TabsPage,
     TutorialPage,
     SupportPage,
-    TimerComponent
+   // TimerComponent
   ],
   imports: [
     BrowserModule,
