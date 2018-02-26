@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
-import { NavController } from 'ionic-angular';
-import { ViewChild } from '@angular/core';
-import { TimerComponent } from '../timer/timer';
+// import { NavController } from 'ionic-angular';
+// import { ViewChild } from '@angular/core';
+// import { TimerComponent } from '../timer/timer';
 import { ConferenceData } from '../../providers/conference-data';
 
 @Component({
@@ -11,7 +11,7 @@ import { ConferenceData } from '../../providers/conference-data';
 })
 export class SessionDetailPage {
   session: any;
-  @ViewChild(TimerComponent) timer: TimerComponent;
+  // @ViewChild(TimerComponent) timer: TimerComponent;
  
   appName = 'Ionic App';
  
