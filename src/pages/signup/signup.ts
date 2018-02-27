@@ -8,7 +8,14 @@ import { UserData } from '../../providers/user-data';
 import { UserOptions } from '../../interfaces/user-options';
 
 import { TabsPage } from '../tabs-page/tabs-page';
-
+import { UserData } from '../../providers/user-data';
+import { NgModule } from '@angular/core';
+//
+@NgModule({
+  providers: [
+    UserData
+  ]
+})
 
 @Component({
   selector: 'page-user',
@@ -27,13 +34,14 @@ export class SignupPage {
     agreementContract: false };
 submitted = false;
 
+
   constructor(public navCtrl: NavController, public userData: UserData) {}
 
   onSignup(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.signup(this.signup.username);
+      this.userData.signup(this.signup.username);     
       this.navCtrl.push(TabsPage);
     }
   }

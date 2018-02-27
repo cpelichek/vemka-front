@@ -4,12 +4,12 @@ import {ITimer} from './itimer';
  
 @Component({
     selector: 'timer',
-    templateUrl: 'app/timer.html'
+    templateUrl: './timer.html'
 })
 export class TimerComponent {
  
     @Input() timeInSeconds: number;
-    public timer: ITimer;
+    public timer: ITimer;   
  
     constructor() {
     }

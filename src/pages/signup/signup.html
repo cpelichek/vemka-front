@@ -1,116 +1,118 @@
 <ion-header>
 	<ion-navbar>
 		<button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+			<ion-icon name="menu"></ion-icon>
+		</button>
 		<ion-title>Signup</ion-title>
 	</ion-navbar>
 </ion-header>
 
 <ion-content class="login-page">
-
+	
 	<div class="logo">
 		<img src="assets/img/appicon.svg" alt="Ionic Logo">
 	</div>
-
+	
 	<form #signupForm="ngForm" novalidate>
 		<ion-list no-lines>
 			<ion-item>
 				<ion-label stacked color="primary">Username</ion-label>
-				<ion-input [(ngModel)]="signup.username" username="username" type="text" #username="ngModel" required>
+				<ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
 				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
 				Username is required
 			</p>
-
+			
 			<ion-item>
-					<ion-label stacked color="primary">Nome</ion-label>
-					<ion-input [(ngModel)]="signup.firstName" firstName="firstName" type="text" #firstName="ngModel" required>
-					</ion-input>
+				<ion-label stacked color="primary">Nome</ion-label>
+				<ion-input [(ngModel)]="signup.firstName" name="firstName" type="text" #firstName="ngModel" required>
+				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="firstName.valid || submitted == false" color="danger" padding-left>
 				Ops! Você não digitou seu nome.
 			</p>
-
+			
 			<ion-item>
-					<ion-label stacked color="primary">Sobrenome</ion-label>
-					<ion-input [(ngModel)]="signup.lastName" lastName="lastName" type="text" #lastName="ngModel" required>
-					</ion-input>
+				<ion-label stacked color="primary">Sobrenome</ion-label>
+				<ion-input [(ngModel)]="signup.lastName" name="lastName" type="text" #lastName="ngModel" required>
+				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="lastName.valid || submitted == false" color="danger" padding-left>
 				Ops! Você não digitou seu sobrenome.
 			</p>
-
+			
 			<ion-item>
-					<ion-label stacked color="primary">Telefone</ion-label>
-					<ion-input [(ngModel)]="signup.phoneNumber" PhoneNumber="phoneNumber" type="text" #phoneNumber="ngModel" required>
-					</ion-input>
+				<ion-label stacked color="primary">Telefone</ion-label>
+				<ion-input [(ngModel)]="signup.phoneNumber" name="phoneNumber" type="text" #phoneNumber="ngModel" required>
+				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="phoneNumber.valid || submitted == false" color="danger" padding-left>
 				Ops! Você não digitou seu telefone.
 			</p>
 			
 			<ion-item>
-					<ion-label stacked color="primary">E-mail</ion-label>
-					<ion-input [(ngModel)]="signup.email" email="email" type="text" #email="ngModel" required>
-					</ion-input>
+				<ion-label stacked color="primary">E-mail</ion-label>
+				<ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
+				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
 				Ops! Você não digitou seu email.
 			</p>
-
+			
 			<ion-item>
-					<ion-label stacked color="primary">CEP</ion-label>
-					<ion-input [(ngModel)]="signup.cep" email="cep" type="text" #cep="ngModel" required>
-					</ion-input>
+				<ion-label stacked color="primary">CEP</ion-label>
+				<ion-input [(ngModel)]="signup.cep" name="cep" type="text" #cep="ngModel" required>
+				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="cep.valid || submitted == false" color="danger" padding-left>
 				Ops! Você não digitou seu cep.
 			</p>
-
+			
 			<ion-item>
-					<ion-label stacked color="primary">Endereço</ion-label>
-					<ion-input [(ngModel)]="signup.adress" adress= "adress" type="text" #adress="ngModel" required>
-					</ion-input>
+				<ion-label stacked color="primary">Endereço</ion-label>
+				<ion-input [(ngModel)]="signup.adress" name= "adress" type="text" #adress="ngModel" required>
+				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="adress.valid || submitted == false" color="danger" padding-left>
 				Ops! Você não digitou seu endereço.
 			</p>
-
+			
 			<ion-item>
-					<ion-label stacked color="primary">aniverssario</ion-label>
-					<ion-input [(ngModel)]="signup.birthDate" birthDate= "birthDate" type="text" #birthDate="ngModel" required>
-					</ion-input>
+				<ion-label stacked color="primary">aniverssario</ion-label>
+				<ion-input [(ngModel)]="signup.birthDate" name= "birthDate" type="text" #birthDate="ngModel" required>
+				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="birthDate.valid || submitted == false" color="danger" padding-left>
 				Ops! Você não digitou seu cep.
 			</p>
-
-			<ion-item>
+			
+			<ion-item> 
 				<!--to do: transformar termos de uso num link.
 					fazer a função de click para trocar o boolean!-->
-					<ion-label stacked color="primary">Voce concordo com os termos de uso</ion-label>
-					<ion-checkbox [(ngModel)]="signup.agreementContract" agreementContract= "agreementContract" type="boolean" #agreementContract="ngModel" required>
+					<ion-label stacked color="primary"> Concordo com os termos de uso</ion-label>
+					<ion-checkbox [(ngModel)]="signup.agreementContract" name= "agreementContract" type="boolean" #agreementContract="ngModel" required>
 					</ion-checkbox>
-			</ion-item>
-			<p ion-text [hidden]="agreementContract.valid || agreementContract == false" color="danger" padding-left>
-				Ops! Você não aceitou os termos de uso.
-			</p>
+				</ion-item>
+				<p ion-text [hidden]="agreementContract.valid || agreementContract == false" color="danger" padding-left>
+					Ops! Você não aceitou os termos de uso.
+				</p>
+				
+				<ion-item>
+					<ion-label stacked color="primary">Password</ion-label>
+					<ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
+					</ion-input>
+				</ion-item>
+				<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+					Password is required
+				</p>
+				
+			</ion-list>
+			
+			<div padding>
+				<button ion-button (click)="onSignup(signupForm)" type="submit" block>Create</button>
+			</div>
+		</form>
 		
-			<ion-item>
-				<ion-label stacked color="primary">Password</ion-label>
-				<ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
-				Password is required
-			</p>
-		</ion-list>
-
-		<div padding>
-			<button ion-button (click)="onSignup(signupForm)" type="submit" block>Create</button>
-		</div>
-	</form>
-
-</ion-content>
+	</ion-content>
+	
