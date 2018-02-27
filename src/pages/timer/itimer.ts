@@ -6,3 +6,5 @@ export interface ITimer {
     hasFinished: boolean;
     displayTime: string;
   }
+
+  

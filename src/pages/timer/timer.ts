@@ -1,73 +1,81 @@
 import {Component, Input} from '@angular/core';
 import {ITimer} from './itimer';
 
- 
- 
+
+
 @Component({
     selector: 'timer',
     templateUrl: './timer.html'
 })
 export class TimerComponent {
-    dateone = Date.parse("2016-08-21T07:00:00.000Z");
-    datetwo = Date.parse("2016-08-23T07:00:00.000Z");
-
+    //    dateone = Date.parse("2016-08-21T07:00:00.000Z");
+    
+    dateone = Date.now();
+    
+    datetwo = Date.parse("2018-02-29T07:00:00.000Z");
+    
     dayDif = (this.datetwo - this.dateone)  / 1000 ;
-
+    ligar= false;
+    
+    
     @Input() timeInSeconds: number;
     public timer: ITimer;   
- 
+    
     constructor() {
     }
- 
+    
+    
     ngOnInit() {
         this.initTimer();
+        this.startTimer();
     }
- 
+    
     hasFinished() {
         return this.timer.hasFinished;
     }
-
-  
+    
+    
     initTimer() {
-
-    //     if(!this.timeInSeconds) { this.timeInSeconds = 0; }
- 
-    //     this.timer = <ITimer>{
-    //         seconds: this.timeInSeconds,
-    //         runTimer: false,
-    //         hasStarted: false,
-    //         hasFinished: false,
-    //         secondsRemaining: this.timeInSeconds
-    //     };
- 
-    //     this.timer.displayTime = this.getSecondsAsDigitalClock(this.timer.secondsRemaining);
-    // } 
-    this.timer = <ITimer>{
-        seconds: this.dayDif,
-        runTimer: false,
-        hasStarted: false,
-        hasFinished: false,
-        secondsRemaining: this.dayDif
-    };
-
-    this.timer.displayTime = this.getSecondsAsDigitalClock(this.timer.secondsRemaining);
-}
-
- 
+        
+        //     this.timer = <ITimer>{
+        //         seconds: this.timeInSeconds,
+        //         runTimer: false,
+        //         hasStarted: false,
+        //         hasFinished: false,
+        //         secondsRemaining: this.timeInSeconds
+        //     };
+        
+        //     this.timer.displayTime = this.getSecondsAsDigitalClock(this.timer.secondsRemaining);
+        // } 
+        this.timer = <ITimer>{
+            seconds: this.dayDif,
+            runTimer: false,
+            hasStarted: false,
+            hasFinished: false,
+            secondsRemaining: this.dayDif
+        };
+        
+        console.log(this.timer.secondsRemaining);
+        
+        this.timer.displayTime = this.getSecondsAsDigitalClock(this.timer.secondsRemaining);
+    }
+    
+    
     startTimer() {
         this.timer.hasStarted = true;
         this.timer.runTimer = true;
         this.timerTick();
     }
- 
-    pauseTimer() {
+    
+    finishTimer() {
         this.timer.runTimer = false;
     }
- 
+    
     resumeTimer() {
         this.startTimer();
     }
- 
+    
+    
     timerTick() {
         setTimeout(() => {
             if (!this.timer.runTimer) { return; }
@@ -81,19 +89,30 @@ export class TimerComponent {
             }
         }, 1000);
     }
- 
+    
     getSecondsAsDigitalClock(inputSeconds: number) {
-        var sec_num = parseInt(inputSeconds.toString(), 10); // don't forget the second param
-        var hours   = Math.floor(sec_num / 3600);
-        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-        var seconds = sec_num - (hours * 3600) - (minutes * 60);
-        var hoursString = '';
-        var minutesString = '';
-        var secondsString = '';
+        let sec_num = parseInt(inputSeconds.toString(), 10); // don't forget the second param
+        let days = Math.floor(sec_num / 86400);
+        let hours   = Math.floor((sec_num - (days * 86400))/ 3600);
+        let minutes = Math.floor((sec_num - (hours * 3600) - (days * 86400)) / 60);
+        let seconds = sec_num - (hours * 3600) - (minutes * 60) - (days * 86400);
+        
+        let daysString = '';
+        
+        let hoursString = '';
+        let minutesString = '';
+        let secondsString = '';
+        daysString= (days <10 ) ? "0" + days : days.toString();
         hoursString = (hours < 10) ? "0" + hours : hours.toString();
         minutesString = (minutes < 10) ? "0" + minutes : minutes.toString();
         secondsString = (seconds < 10) ? "0" + seconds : seconds.toString();
-        return hoursString + ':' + minutesString + ':' + secondsString;
+        
+        
+        return  daysString + 'dias' + hoursString + ':' + minutesString + ':' + secondsString;
+        // if (this.timer.secondsRemaining <= 0){
+        //    finishTimer();
+        //    Hide(this.timer);
+        // }
     }
     
 }

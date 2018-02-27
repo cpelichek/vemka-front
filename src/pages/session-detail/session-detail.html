@@ -15,12 +15,12 @@
     </p>
     <p>{{session.location}}</p>
     <p>{{session.description}}</p>
-    <button ion-button color="secondary" (click)="YourFancyButton()">Secondary</button>
-    <button ion-button color="secondary" (click)="YourFancyButton()">comprar </button>
+    <button ion-button color="secondary" (click)="YourFancyButton()">Comprar</button>
+    
     
 
-    <timer #timer timeInSeconds="99"></timer>
-    <timer #timer [timeInSeconds]="countDown"></timer>
-      
+    <timer  #timer timeInSeconds="{{dayDif}}"></timer>
+    
+      <button></button>
   </div>
 </ion-content>

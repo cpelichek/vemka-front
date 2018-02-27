@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { NgModule } from '@angular/core';
-//import { ViewChild } from '@angular/core';
-//import { TimerComponent } from '../timer/timer';
+import { ViewChild } from '@angular/core';
+import { TimerComponent } from '../timer/timer';
 import { ConferenceData } from '../../providers/conference-data';
 import { SignupPage } from '../signup/signup';
 
@@ -15,7 +15,7 @@ import { SignupPage } from '../signup/signup';
 
 export class SessionDetailPage {
   session: any;
-  //@ViewChild(TimerComponent) timer: TimerComponent;
+  @ViewChild(TimerComponent) timer: TimerComponent;
   appName = 'Ionic App';
  
 
@@ -26,12 +26,12 @@ export class SessionDetailPage {
   ) {}
 
  
-  /*ngOnInit() {
+  ngOnInit() {
     setTimeout(() => {
       this.timer.startTimer();
     }, 1000)
   }
- */
+ 
 YourFancyButton(){
   this.navController.setRoot(SignupPage);
   }
