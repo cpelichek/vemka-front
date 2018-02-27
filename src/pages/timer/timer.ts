@@ -107,12 +107,13 @@ export class TimerComponent {
         minutesString = (minutes < 10) ? "0" + minutes : minutes.toString();
         secondsString = (seconds < 10) ? "0" + seconds : seconds.toString();
         
+        if (this.timer.secondsRemaining <= 0){
+            this.finishTimer();
+            
+        }
         
         return  daysString + 'dias' + hoursString + ':' + minutesString + ':' + secondsString;
-        // if (this.timer.secondsRemaining <= 0){
-        //    finishTimer();
-        //    Hide(this.timer);
-        // }
+      
     }
     
 }
