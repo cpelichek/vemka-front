@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ITimer} from './itimer';
+
  
  
 @Component({
@@ -7,7 +8,11 @@ import {ITimer} from './itimer';
     templateUrl: './timer.html'
 })
 export class TimerComponent {
- 
+    dateone = Date.parse("2016-08-21T07:00:00.000Z");
+    datetwo = Date.parse("2016-08-23T07:00:00.000Z");
+
+    dayDif = (this.datetwo - this.dateone)  / 1000 ;
+
     @Input() timeInSeconds: number;
     public timer: ITimer;   
  
@@ -21,20 +26,33 @@ export class TimerComponent {
     hasFinished() {
         return this.timer.hasFinished;
     }
- 
+
+  
     initTimer() {
-        if(!this.timeInSeconds) { this.timeInSeconds = 0; }
+
+    //     if(!this.timeInSeconds) { this.timeInSeconds = 0; }
  
-        this.timer = <ITimer>{
-            seconds: this.timeInSeconds,
-            runTimer: false,
-            hasStarted: false,
-            hasFinished: false,
-            secondsRemaining: this.timeInSeconds
-        };
+    //     this.timer = <ITimer>{
+    //         seconds: this.timeInSeconds,
+    //         runTimer: false,
+    //         hasStarted: false,
+    //         hasFinished: false,
+    //         secondsRemaining: this.timeInSeconds
+    //     };
  
-        this.timer.displayTime = this.getSecondsAsDigitalClock(this.timer.secondsRemaining);
-    }
+    //     this.timer.displayTime = this.getSecondsAsDigitalClock(this.timer.secondsRemaining);
+    // } 
+    this.timer = <ITimer>{
+        seconds: this.dayDif,
+        runTimer: false,
+        hasStarted: false,
+        hasFinished: false,
+        secondsRemaining: this.dayDif
+    };
+
+    this.timer.displayTime = this.getSecondsAsDigitalClock(this.timer.secondsRemaining);
+}
+
  
     startTimer() {
         this.timer.hasStarted = true;
