@@ -2,9 +2,9 @@
 
   "schedule": [{
     "groups": [{
-      "date": "2047-05-17",
-      "time": "8:00 am",
       "sessions": [{
+       "date": "2047-05-17",
+       "time": "8:00 am",
         "name": "VemKa Você já leu...?",
         "timeEnd": "9:00 am",
         "location": "Vão do MASP",
