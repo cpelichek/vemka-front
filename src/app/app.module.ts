@@ -29,6 +29,7 @@ import { SupportPage } from '../pages/support/support';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 import { TimerComponent } from '../pages/timer/timer';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,11 +48,14 @@ import { TimerComponent } from '../pages/timer/timer';
     TabsPage,
     TutorialPage,
     SupportPage,
-    TimerComponent
+    TimerComponent,
+    
+
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },

@@ -7,9 +7,12 @@
 <ion-content padding>
   <div *ngIf="session">
     <h1>{{session.name}}</h1>
+   
     <h4 *ngFor="let speaker of session?.speakers">
     {{speaker.name}}
   </h4>
+  <h1>{{session.schedule[0].groups[0].date}}</h1>
+  <h2>{{session.schedule[0].groups[0].time}}</h2>
     <p>
       {{session.timeStart}} - {{session.timeEnd}}
     </p>
