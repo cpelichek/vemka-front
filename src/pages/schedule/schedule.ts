@@ -13,6 +13,7 @@ import { UserData } from '../../providers/user-data';
 
 import { SessionDetailPage } from '../session-detail/session-detail';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class SchedulePage {
   queryText = '';
   segment = 'all';
   excludeTracks: any = [];
-  shownSessions: any = [];
+  // shownSessions: any = [];
+  schedules: any = [];
   groups: any = [];
   confDate: string;
 
@@ -43,11 +45,16 @@ export class SchedulePage {
     public toastCtrl: ToastController,
     public confData: ConferenceData,
     public user: UserData,
+    public http: HttpClient
   ) {}
 
   ionViewDidLoad() {
     this.app.setTitle('Schedule');
-    this.updateSchedule();
+    this.http.get('http://159.65.237.0:8080/schedules').subscribe((data) => {
+      this.schedules = data;
+      console.log(this.schedules);
+    });
+    // this.updateSchedule();
   }
 
   updateSchedule() {
@@ -55,7 +62,7 @@ export class SchedulePage {
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
+      // this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });
   }
