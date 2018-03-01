@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngIf="schedule">
+  <div class="flex-container"  *ngIf="schedule">
     <h1>{{schedule.scheduleName}}</h1>
    
     <!-- <h4 *ngFor="let speaker of session?.speakers">
@@ -16,15 +16,18 @@
   <p>o evento vai durar:</p>
   <h2>{{schedule.duration}}</h2>
   
-    <p>Nosso evento é secreto, mas podemos te dar uma dica!</p>
+    <p>Nosso evento é secreto, podemos te dar uma dica!</p>
     <p>Nossa dica é: </p>
     <h2>{{schedule.clue}}</h2>
-    <button ion-button color="secondary" (click)="YourFancyButton()">Comprar! {{schedule.price}}</button>
+    </div>
+
+  <h2>quando o timer zerar os ingressos não serão mais vendidos</h2>
+    <timer #timer [datetwo]="dateSalesEnd" *ngIf="dateSalesEnd"></timer> 
+    <button ion-button color="secondary" (click)="YourFancyButton()" block>Comprar</button>
     
     
 
-    <timer #timer [datetwo]="dateSalesEnd" *ngIf="dateSalesEnd"></timer>
+   
     
-      <button></button>
-  </div>
+    
 </ion-content>
