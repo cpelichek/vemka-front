@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { App, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the BoughtPage page.
@@ -15,8 +16,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BoughtPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navParams: NavParams,
+    public navController: NavController,
+    public http: HttpClient,
+    public app: App,
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BoughtPage');
