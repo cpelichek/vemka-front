@@ -5,8 +5,9 @@ import { App, NavController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { TimerComponent } from '../timer/timer';
 import { ConferenceData } from '../../providers/conference-data';
-import { SignupPage } from '../signup/signup';
+//import { SignupPage } from '../signup/signup';
 import { HttpClient } from '@angular/common/http';
+import { BoughtPage } from '../bought/bought';
 
 @Component({
   selector: 'page-session-detail',
@@ -68,7 +69,7 @@ export class SessionDetailPage {
   // }
  
 YourFancyButton(){
-  this.navController.setRoot(SignupPage);
+  this.navController.setRoot(BoughtPage);
   }
 
   //ionViewWillEnter() {
