@@ -46,7 +46,7 @@
 
       <ion-item-sliding *ngFor="let schedule of schedules" #slidingItem [attr.track]="schedule.tracks | lowercase" [hidden]="false">
 
-        <button ion-item (click)="goToSessionDetail(session)">
+        <button ion-item (click)="goToSessionDetail(schedule)">
           <h3>{{schedule.scheduleName}}</h3>
           <p>
             {{schedule.dateSchedule}} &mdash;

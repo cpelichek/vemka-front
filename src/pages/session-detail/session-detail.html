@@ -1,23 +1,22 @@
 <ion-header>
   <ion-navbar>
-    <ion-title *ngIf="session">{{session.name}}</ion-title>
+    <ion-title *ngIf="session">{{schedule.scheduleName}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div *ngIf="session">
-    <h1>{{session.name}}</h1>
+  <div *ngIf="schedule">
+    <h1>{{schedule.scheduleName}}</h1>
    
-    <h4 *ngFor="let speaker of session?.speakers">
-    {{speaker.name}}
-  </h4>
-  <h1>{{session.date}}</h1>
-  <h2>{{session.time}}</h2>
-    <p>
-      {{session.timeStart}} - {{session.timeEnd}}
-    </p>
-    <p>{{session.location}}</p>
-    <p>{{session.description}}</p>
+    <!-- <h4 *ngFor="let speaker of session?.speakers">
+    {{schedule.speaker}}
+  </h4> -->
+  <h1>{{schedule.dateSchedule}}</h1>
+  <br/>
+  <p>o evento vai durar:</p>
+  <h2>{{schedule.duration}}</h2>
+  
+    <p>{{schedule.clue}}</p>
     <button ion-button color="secondary" (click)="YourFancyButton()">Comprar</button>
     
     

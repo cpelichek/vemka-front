@@ -31,7 +31,7 @@ export class SchedulePage {
   queryText = '';
   segment = 'all';
   excludeTracks: any = [];
-  // shownSessions: any = [];
+  shownSessions: any = [];
   schedules: any = [];
   groups: any = [];
   confDate: string;
@@ -54,7 +54,7 @@ export class SchedulePage {
       this.schedules = data;
       console.log(this.schedules);
     });
-    // this.updateSchedule();
+    this.updateSchedule();
   }
 
   updateSchedule() {
@@ -62,7 +62,7 @@ export class SchedulePage {
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      // this.shownSessions = data.shownSessions;
+      this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });
   }
@@ -80,11 +80,11 @@ export class SchedulePage {
 
   }
 
-  goToSessionDetail(sessionData: any) {
+  goToSessionDetail(schedule: any) {
     // go to the session detail page
     // and pass in the session data
 
-    this.navCtrl.push(SessionDetailPage, { sessionId: sessionData.id, name: sessionData.name });
+    this.navCtrl.push(SessionDetailPage, { id: schedule._id});
   }
 
   addFavorite(slidingItem: ItemSliding, sessionData: any) {
