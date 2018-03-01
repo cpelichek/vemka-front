@@ -12,13 +12,11 @@ export class TimerComponent {
     
     dateone = Date.now();
     
-    datetwo = Date.parse("2018-02-29T07:00:00.000Z");
+    @Input() datetwo;
     
-    dayDif = (this.datetwo - this.dateone)  / 1000 ;
+    dayDif;
     ligar= false;
     
-    
-    @Input() timeInSeconds: number;
     public timer: ITimer;   
     
     constructor() {
@@ -36,7 +34,7 @@ export class TimerComponent {
     
     
     initTimer() {
-        
+        this.dayDif = (this.datetwo - this.dateone)  / 1000; 
         //     this.timer = <ITimer>{
         //         seconds: this.timeInSeconds,
         //         runTimer: false,
@@ -112,7 +110,7 @@ export class TimerComponent {
             
         }
         
-        return  daysString + 'dias' + hoursString + ':' + minutesString + ':' + secondsString;
+        return  daysString + ' dias ' + hoursString + ':' + minutesString + ':' + secondsString;
       
     }
     
