@@ -19,9 +19,11 @@
     <p>Nosso evento é secreto, podemos te dar uma dica!</p>
     <p>Nossa dica é: </p>
     <h2>{{schedule.clue}}</h2>
+    <br/>
+    <br/>
+    <h3>Vendas encerram em:</h3>
     </div>
 
-  <h2>quando o timer zerar os ingressos não serão mais vendidos</h2>
     <timer #timer [datetwo]="dateSalesEnd" *ngIf="dateSalesEnd"></timer> 
     <button ion-button color="secondary" (click)="YourFancyButton()" block>Comprar</button>
     

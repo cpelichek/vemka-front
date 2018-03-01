@@ -35,7 +35,7 @@ export class SessionDetailPage {
     let id = this.navParams.get('id');  
   
     if(!id || id == ':id'){
-      id = '5a97bdbc35e6526debb4969a';
+      id = '5a9819ee35e6526debb4969b';
     }
 
     this.http.get(`http://159.65.237.0:8080/scheduleDetail/${id}`).subscribe((data) => {
