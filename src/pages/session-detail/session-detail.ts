@@ -5,8 +5,9 @@ import { App, NavController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { TimerComponent } from '../timer/timer';
 import { ConferenceData } from '../../providers/conference-data';
-import { SignupPage } from '../signup/signup';
+//import { SignupPage } from '../signup/signup';
 import { HttpClient } from '@angular/common/http';
+import { BoughtPage } from '../bought/bought';
 
 @Component({
   selector: 'page-session-detail',
@@ -19,7 +20,7 @@ export class SessionDetailPage {
   @ViewChild(TimerComponent) timer: TimerComponent;
   appName = 'Ionic App';
   schedule: any;
- 
+  dateSalesEnd;
 
   constructor(
     public dataProvider: ConferenceData,
@@ -29,15 +30,25 @@ export class SessionDetailPage {
     public app: App,
   ) {}
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.app.setTitle('sessionDetail');
-    let id = this.navParams.get('id');
+    let id = this.navParams.get('id');  
+  
+    if(!id || id == ':id'){
+      id = '5a97bdbc35e6526debb4969a';
+    }
 
     this.http.get(`http://159.65.237.0:8080/scheduleDetail/${id}`).subscribe((data) => {
       this.schedule = data;
-      console.log(this.schedule);
+      this.startTimer();
+
     });
     // this.updateSchedule();
+  }
+
+
+  startTimer(){
+    this.dateSalesEnd = new Date(this.schedule.dateSalesEndMS);
   }
 
     updateSchedule() {
@@ -58,10 +69,10 @@ export class SessionDetailPage {
   // }
  
 YourFancyButton(){
-  this.navController.setRoot(SignupPage);
+  this.navController.setRoot(BoughtPage);
   }
 
-  ionViewWillEnter() {
+  //ionViewWillEnter() {
   //   this.dataProvider.load().subscribe((data: any) => {
   //     if (
   //       data &&
@@ -81,5 +92,5 @@ YourFancyButton(){
   //       }
   //     }
   //   });
-  }
+  //}
 }

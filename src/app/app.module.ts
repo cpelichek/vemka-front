@@ -29,6 +29,7 @@ import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 import { TimerComponent } from '../pages/timer/timer';
 import { HttpClientModule } from '@angular/common/http';
+import { BoughtPage } from '../pages/bought/bought';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     TutorialPage,
     SupportPage,
     TimerComponent,
+    BoughtPage
     
 
   ],
@@ -68,7 +70,8 @@ import { HttpClientModule } from '@angular/common/http';
         { component: SupportPage, name: 'SupportPage', segment: 'support' },
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
         { component: AccountPage, name: 'AccountPage', segment: 'account' },
-        { component: SignupPage, name: 'SignupPage', segment: 'signup' }
+        { component: SignupPage, name: 'SignupPage', segment: 'signup' },
+        { component: BoughtPage, name: 'BoughtPage', segment: 'bought' }
       ]
     }),
     IonicStorageModule.forRoot()
@@ -89,7 +92,8 @@ import { HttpClientModule } from '@angular/common/http';
     SpeakerListPage,
     TabsPage,
     TutorialPage,
-    SupportPage
+    SupportPage,
+    BoughtPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
